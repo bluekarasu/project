@@ -1,0 +1,50 @@
+h4{
+  font-size:30px;
+  color:#F08080;
+}
+body{
+  background-color: rgb(0, 30, 40);
+}
+.sidebar {
+        min-width: 200px;
+        max-width: 200px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+}
+.sidebar a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+.sidenbar a:hover {
+    color: #f1f1f1;
+}
+.three{
+    padding: 15px;
+    background-color:rgb(0, 45, 55);
+    color:rgba(255, 255, 255, 0.62);
+    height:300px;
+}
+.home1{
+  margin: 35px;
+  background-color:rgb(0, 45, 55);
+  padding: 35px;
+  height:400px;
+}
+.hobbys{
+  padding: 15px;
+  background-color:rgb(0, 45, 55);
+  color:rgba(255, 255, 255, 0.62);
+  height:100vh;
+}
+.contact{
+  padding: 15px;
+  background-color:rgb(0, 45, 55);
+  color:rgba(255, 255, 255, 0.62);
+  height:100vh;
+}

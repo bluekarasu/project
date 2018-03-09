@@ -1,0 +1,20 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+<div class="container-fluid">
+  <div class="col-md-2 col-sm-3 reportpanel1">
+    {% for report in reports %}
+      <a href="{% url 'report_detail' pk=report.pk %}">{{ report.title }}</a>
+      <br />
+    {% endfor %}
+  </div>
+  <div class="col-md-2 col-sm-3 reportpanel2">
+    <h1>{{ report.title }}</a></h1>
+    <div class="date">
+        {{ report.created_date}}
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-6 reportpanel3">
+    <embed src="{{ report.document.url }}" width="90%" height="90%"  type='application/pdf'>
+  </div>
+</div>
+{% endblock %}

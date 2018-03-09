@@ -1,0 +1,20 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+<div class="container-fluid">
+  <div class="col-md-2 col-sm-3 exppanel1">
+    {% for exp in exps %}
+      <a href="{% url 'exp_detail' pk=exp.pk %}">{{ exp.title }}</a>
+      <br />
+    {% endfor %}
+  </div>
+  <div class="col-md-2 col-sm-3 reportpanel2">
+    <h1>{{ exp.title }}</a></h1>
+    <div class="date">
+        {{ exp.created_date}}
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-6 exppanel3">
+    {{ exp.text|safe }}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Whatever</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'css/three.css' %}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+  {% block content %}
+  <div class="container-fluid">
+    <div class="col-sm-1 col-md-1">
+          <div class="sidebar">
+              <!-- Sidebar Header -->
+              <div class="sidebar-header">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#hobby">Hobby</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+    </div>
+    <!--!!!!!!!!!-->
+    <div class="col-sm-10 col-md-10">
+    <div class="tab-content">
+      <!-- home tab -->
+      <div id="home" class="container tab-pane active"><br>
+        <div class="col-sm-4 col-md-4">
+          <div class="three">
+            <h4>To do's</h4>
+            {% for report in reports %}
+              <div>
+                <p>
+                  <a href="{% url 'report_detail' pk=report.pk %}">{{ report.title }}</a>
+                </p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="three">
+            <h4>New information</h4>
+              {% for post in posts %}
+              <div>
+                <p>
+                  <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                </p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="three">
+            <h4>Experiment</h4>
+            {% for exp in exps %}
+            <div>
+              <p>
+                <a href="{% url 'exp_detail' pk=exp.pk %}">{{ exp.title }}</a>
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12">
+          <div class="home1">
+            <h1>COMING SOON</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- free time -->
+      <div id="hobby" class="container tab-pane fade"><br>
+        <div class="col-sm-6 col-md-6">
+          <div class="hobbys">
+            <h1>ゲーム用</h1>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="hobbys">
+            <h1>写真</h1>
+            {% for photo in photos %}
+            <div class="col-sm-6 col-md-6">
+              <a href="{{ photos.document.url }}">{{ photo.title }}</a>
+              <img src="{{ photo.document.url }}" onclick=window.open(this.src) width="95%" height="95%" >
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- contact -->
+      <div id="contact" class="container tab-pane fade"><br>
+        <div class="col-sm-12 col-md-12">
+          <div class="contact">
+            <h1></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+  {% endblock %}
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+      <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
