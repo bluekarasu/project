@@ -1,0 +1,20 @@
+{% extends 'blog/index.html' %}
+{% block content %}
+    <div class="container-fluid">
+      <div class="col-md-2 col-sm-3 postpanel1">
+        {% for work in works %}
+          <a href="{% url 'work_detail' pk=work.pk %}">{{ work.title }}</a>
+          <br />
+        {% endfor %}
+      </div>
+      <div class="col-md-2 col-sm-3 postpanel2">
+        <h1>{{ work.title }}</a></h1>
+        <div class="date">
+            {{ work.created_date}}
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-6 postpanel3">
+        <p>{{ work.text|safe }}</p>
+      </div>
+    </div>
+{% endblock %}
