@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,71 +9,80 @@
     <meta name="author" content="">
     <title>INFO</title>
     <!-- Bootstrap Core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
-    <link href="{% static 'css/three.css' %}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top navig">
-        <ul class="nav navbar-nav">
-          <li><a href="#">INFO</a></li>
-          <li><a class="nav-link" href="{% url 'home' %}">My BLOG</a></li>
-        </ul>
-    </nav>
 </head>
 <body>
-  {% block content %}
+
   <div class="container-fluid">
-    <!--!!!!!!!!!-->
-    <div class="col-sm-12 col-md-12 threepanel">
-    <div class="tab-content">
-      <!-- home tab -->
-      <div id="home" class="container tab-pane active"><br>
-        <div class="col-sm-4 col-md-4">
-          <div class="three">
-            <h4>就活情報</h4>
-            {% for work in works %}
-              <div class="row">
-                <p>
-                  <a href="{% url 'work_detail' pk=work.pk %}">{{ work.title }}</a>
-                </p>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="three">
-            <h4>プログラミング課題とCTF課題</h4>
-              {% for post in posts %}
-              <div class="row">
-                <p>
-                  <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-                </p>
-              </div>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="three">
-            <h4>実験</h4>
-            {% for exp in exps %}
-            <div class="row">
-              <p>
-                <a href="{% url 'exp_detail' pk=exp.pk %}">{{ exp.title }}</a>
+    <div class="headers">
+			<h2 class="title h1"><a class="navbar-brand" href="{% url 'index' %}">Simple is the best</a></h2>
+			<p class="text-center text-muted h5">Online notebook of <a href="{% url 'home' %}">&BK</a></p>
+    </div>
+			{% block content %}
+      <div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card panel">
+						<div class="card-block block-1">
+							<h3 class="sec_title">CTF</h3>
+              {% for report in reports %}
+              <div class="row1">
+							<p>
+                <a href="{% url 'report_detail' pk=report.pk %}">{{ report.title }}</a>
               </p>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
+              </div>
+              {% endfor %}
+						</div>
+					</div>
+				</div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card panel">
+						<div class="card-block block-2">
+							<h3 class="sec_title">Experiment</h3>
+							  {% for exp in exps %}
+              <div class="row1">
+                <p>
+                  <a href="{% url 'exp_detail' pk=exp.pk %}">{{ exp.title }}</a>
+                </p>
+              </div>
+              {% endfor %}
+						</div>
+					</div>
+				</div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					<div class="card panel">
+						<div class="card-block block-3">
+							<h3 class="sec-title">Quotes of Day</h3>
+							  <p>
+                  The truth is rarely pure and never simple.
+                </p>
+						</div>
+					</div>
+          <div class="card panel">
+						<div class="card-block block-3">
+							<h3 class="sec-title">追加</h3>
+							  <p>
+                  追加
+                </p>
+						</div>
+					</div>
+				</div>
       </div>
-    </div>
-    </div>
+      {% endblock %}
   </div>
-  {% endblock %}
+
+
+
+     <!-- Bootstrap core JavaScript -->
+     <script src="vendor/jquery/jquery.min.js"></script>
+     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <!-- Plugin JavaScript -->
+     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+     <!-- Custom scripts for this template -->
+     <script src="js/resume.min.js"></script>
+   </body>
+
+ </html>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
       <!-- jQuery -->
